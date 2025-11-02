@@ -1,0 +1,26 @@
+{
+  "id": "login-test",
+  "version": "2.0",
+  "name": "Login Test",
+  "url": "https://example.com/login",
+  "tests": [{
+    "name": "Valid Login",
+    "commands": [
+      {"command": "open", "target": "/login"},
+      {"command": "type", "target": "id=username", "value": "validUser"},
+      {"command": "type", "target": "id=password", "value": "validPass"},
+      {"command": "clickAndWait", "target": "id=loginButton"},
+      {"command": "assertText", "target": "id=welcomeMessage", "value": "Welcome"}
+    ]
+  },
+  {
+    "name": "Invalid Login",
+    "commands": [
+      {"command": "open", "target": "/login"},
+      {"command": "type", "target": "id=username", "value": "invalidUser"},
+      {"command": "type", "target": "id=password", "value": "wrongPass"},
+      {"command": "clickAndWait", "target": "id=loginButton"},
+      {"command": "assertText", "target": "id=errorMessage", "value": "Invalid credentials"}
+    ]
+  }]
+}
